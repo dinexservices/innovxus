@@ -1,65 +1,89 @@
-import Image from "next/image";
 
-export default function Home() {
+import React from 'react';
+import { Navbar } from '@/components/Navbar';
+import { Hero } from '@/components/Hero';
+import { Marquee } from '@/components/Marquee';
+import { UpcomingEvents } from '@/components/UpcomingEvents';
+import { PastEventsTimeline } from '@/components/PastEventsTimeline';
+import { Gallery } from '@/components/Gallery';
+
+import { Contact } from '@/components/Contact';
+import { CollegesSection } from '@/components/CollegesSection';
+
+const Home: React.FC = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="bg-[#050505] min-h-screen text-white overflow-x-hidden">
+      <Navbar />
+      <Hero />
+      <Marquee />
+      
+      {/* Introduction Content with Background */}
+      <section className="relative py-32 mt-[1rem] overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1920&auto=format&fit=crop" 
+            alt="Event Background" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/80 to-[#050505]" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <h2 className="text-red-600 font-bold uppercase tracking-widest">Our Mission</h2>
+              <h3 className="text-5xl md:text-6xl font-syncopate font-bold leading-tight">
+                FUELING THE <span className="text-red-600 underline underline-offset-8">EXPERIENCE</span> ECONOMY
+              </h3>
+              <p className="text-gray-300 text-xl leading-relaxed">
+                Innovxus is not just an event planner. We are architects of moments. Since 2018, we have been transforming ordinary campus lawns and corporate ballrooms into high-octane stages of inspiration.
+              </p>
+              <div className="flex gap-12">
+                <div>
+                  <p className="text-5xl font-syncopate font-bold text-red-600 mb-2">50+</p>
+                  <p className="text-sm uppercase tracking-widest text-gray-500 font-bold">College Fests</p>
+                </div>
+                <div>
+                  <p className="text-5xl font-syncopate font-bold text-red-600 mb-2">200k</p>
+                  <p className="text-sm uppercase tracking-widest text-gray-500 font-bold">Attendees</p>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-red-600 rounded-[3rem] rotate-3 -z-10 shadow-[0_0_50px_rgba(220,38,38,0.3)]" />
+              <img 
+                src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=800&auto=format&fit=crop" 
+                alt="Event Atmosphere" 
+                className="w-full h-full object-cover rounded-[3rem] shadow-2xl transition-transform duration-500 hover:rotate-0"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CollegesSection />
+      <UpcomingEvents />
+      <PastEventsTimeline />
+      <Gallery />
+      <Contact />
+
+      <footer className="py-12 border-t border-white/5 bg-black">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="text-2xl font-syncopate font-bold">
+            INNOVXUS<span className="text-red-600">.</span>
+          </div>
+          <p className="text-gray-500 text-sm">
+            © 2024 Innovxus Events Organization. All rights reserved.
           </p>
+          <div className="flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+            <a href="#" className="hover:text-red-600 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-red-600 transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-red-600 transition-colors">Cookies</a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </footer>
     </div>
   );
-}
+};
+
+export default Home;
