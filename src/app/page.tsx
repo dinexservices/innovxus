@@ -22,10 +22,6 @@ const Home: React.FC = () => {
     <div className=" min-h-screen text-white overflow-x-hidden">
       <Navbar />
       <Hero />
-
-
-
-
       <InstitutionalApproach />
       <EngagementMetrics />
       <Marquee />
@@ -37,6 +33,7 @@ const Home: React.FC = () => {
 
       {/* <UpcomingEvents /> */}
       {/* <PastEventsTimeline /> */}
+      
       <Gallery />
       <Contact />
       

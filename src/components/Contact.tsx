@@ -18,7 +18,7 @@ export const Contact: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-red-600 font-bold uppercase tracking-widest mb-4">Get In Touch</h2>
-          <h3 className="text-5xl md:text-7xl font-syncopate font-bold mb-10 leading-tight text-black">
+          <h3 className="text-4xl md:text-6xl font-syncopate font-bold mb-10 leading-tight text-black">
             LET'S <span className="text-red-600">COLLABORATE</span>
           </h3>
           <p className="text-gray-600 text-xl mb-20 max-w-2xl mx-auto leading-relaxed">

@@ -2,6 +2,10 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const logo='/logo.png'
 
 export const Navbar: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -24,10 +28,12 @@ export const Navbar: React.FC = () => {
     return (
         <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-5'}`}>
             <div className="container mx-auto px-6 flex justify-between items-center">
-                <a href="#hero" className="text-xl md:text-3xl font-syncopate font-bold flex items-center gap-2">
-                    <span className="w-6 h-6 md:w-8 md:h-8 rounded-sm inline-block bg-red-600 transition-colors"></span>
-                    <span className="text-black transition-colors">INNOVXUS</span>
-                </a>
+                <Link href="/" className="  flex items-center gap-2">
+                   
+                        <Image src={logo} alt="Logo" width={200} height={200} className='object-contain ' />
+                   
+                
+                </Link>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex gap-8 items-center">

@@ -23,12 +23,10 @@ export const Hero: React.FC = () => {
                 </p>
 
                 <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 w-full px-4 md:px-0 mb-20">
-                    <a href="#events" className="w-full md:w-auto px-8 md:px-10 py-4 md:py-5 bg-red-600 text-white font-bold rounded-full hover:bg-black transition-all transform hover:scale-105 shadow-xl font-syncopate text-xs tracking-widest text-center">
-                        EXPLORE EVENTS
+                    <a href="#contact" className="w-full md:w-auto px-8 md:px-10 py-4 md:py-5 bg-red-600 text-white font-bold rounded-full hover:bg-black transition-all transform hover:scale-105 shadow-xl  text-lg tracking-widest text-center">
+                        Get In Touch
                     </a>
-                    <a href="#contact" className="w-full md:w-auto px-8 md:px-10 py-4 md:py-5 border-2 border-gray-200 text-black font-bold rounded-full hover:bg-black hover:text-white transition-all font-syncopate text-xs tracking-widest text-center">
-                        GET IN TOUCH
-                    </a>
+                   
                 </div>
             </div>
 

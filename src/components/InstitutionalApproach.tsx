@@ -19,10 +19,10 @@ export const InstitutionalApproach: React.FC = () => {
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="max-w-4xl mx-auto text-center mb-20">
-                    <h2 className="text-3xl md:text-5xl font-syncopate font-bold mb-8 leading-tight">
+                    <h2 className="text-3xl md:text-5xl  font-bold mb-8 leading-tight">
                         Institutional <span className="text-red-600">Approach</span>
                     </h2>
-                    <p className="text-gray-400 text-lg md:text-2xl leading-relaxed font-light">
+                    <p className="text-gray-400 text-sm md:text-2xl leading-relaxed font-light">
                         InnovXus operates with a governance-first approach, ensuring that all academic and technical programs are
                         conducted under institutional approvals, faculty supervision, and clearly defined operational standard operating
                         procedures (SOPs).

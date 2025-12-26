@@ -54,7 +54,7 @@ export const InstitutionalEngagement: React.FC = () => {
                         {/* Connecting Line (Desktop) */}
                         <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-800 -translate-y-1/2 z-0" />
 
-                        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative z-10">
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 relative z-10">
                             {steps.map((step, idx) => (
                                 <div key={idx} className="flex flex-col items-center text-center group">
                                     <div className="w-12 h-12 rounded-full bg-black border-2 border-red-600 flex items-center justify-center text-xl font-bold mb-6 relative transition-transform duration-300 group-hover:scale-110 shadow-[0_0_20px_rgba(220,38,38,0.3)]">

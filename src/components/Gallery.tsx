@@ -160,49 +160,10 @@ export const Gallery: React.FC = () => {
                 {/* New Feature: Event Highlights Carousel */}
                 <GalleryCarousel />
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-[215px]">
-                    {GALLERY_IMAGES.map((img, idx) => (
-                        <GalleryItem
-                            key={img.id}
-                            img={img}
-                            idx={idx}
-                            onOpen={openModal}
-                        />
-                    ))}
-                </div>
+             
             </div>
 
-            {/* Modal Backdrop */}
-            {selectedImage && (
-                <div
-                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-black/98 backdrop-blur-xl transition-opacity duration-300"
-                    onClick={closeModal}
-                >
-                    <button
-                        onClick={(e) => { e.stopPropagation(); closeModal(); }}
-                        className="absolute top-6 right-6 p-4 bg-red-600 text-white rounded-full hover:bg-red-700 transition-all z-[110] shadow-[0_0_20px_rgba(220,38,38,0.5)] transform hover:rotate-90"
-                    >
-                        <X size={24} />
-                    </button>
-
-                    <div
-                        className="relative max-w-5xl w-full flex flex-col items-center animate-in zoom-in-95 duration-300"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <div className="glass p-3 rounded-[3rem] border-red-500/30 w-full overflow-hidden shadow-[0_0_100px_rgba(220,38,38,0.2)]">
-                            <img
-                                src={selectedImage.url}
-                                alt={selectedImage.caption}
-                                className="w-full h-auto max-h-[60vh] md:max-h-[75vh] object-contain rounded-[1.5rem] md:rounded-[2.5rem]"
-                            />
-                            <div className="p-8 text-center">
-                                <h4 className="text-3xl font-bold font-syncopate text-white tracking-tight">{selectedImage.caption}</h4>
-                                <div className="h-1 w-24 bg-red-600 mx-auto mt-6 rounded-full shadow-[0_0_15px_rgba(220,38,38,1)]"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
+       
         </section>
     );
 };

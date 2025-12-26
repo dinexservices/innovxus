@@ -1,6 +1,6 @@
-
-import React from 'react';
-import { Briefcase, Boxes, PenTool, AlertTriangle, ArrowUpRight } from 'lucide-react';
+"use client"
+import React, { useEffect, useRef, useState } from 'react';
+import { Briefcase, Boxes, PenTool, AlertTriangle, ArrowUpRight, Building2, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const CorporateCollaboration: React.FC = () => {
     const models = [
@@ -21,11 +21,36 @@ export const CorporateCollaboration: React.FC = () => {
         "DriftX"
     ];
 
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const [isPaused, setIsPaused] = useState(false);
+
+    useEffect(() => {
+        const scrollContainer = scrollRef.current;
+        if (!scrollContainer) return;
+
+        let animationFrameId: number;
+
+        const scroll = () => {
+            if (!isPaused && scrollContainer) {
+                if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+                    scrollContainer.scrollLeft = 0;
+                } else {
+                    scrollContainer.scrollLeft += 1; // Adjust speed here
+                }
+            }
+            animationFrameId = requestAnimationFrame(scroll);
+        };
+
+        animationFrameId = requestAnimationFrame(scroll);
+
+        return () => cancelAnimationFrame(animationFrameId);
+    }, [isPaused]);
+
+    // Duplicate logic for infinite scroll effect
+    const displayOrgs = [...organizations, ...organizations, ...organizations];
+
     return (
         <section className="bg-black text-white py-24 relative overflow-hidden">
-            {/* Background Gradients */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-900/10 to-transparent pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-t from-gray-900 to-transparent pointer-events-none" />
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="max-w-4xl mb-16">
@@ -76,13 +101,57 @@ export const CorporateCollaboration: React.FC = () => {
                             </h5>
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            {organizations.map((org, idx) => (
-                                <div key={idx} className="flex flex-col justify-center items-center text-center p-4 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all aspect-[3/2] group cursor-default">
-                                    <span className="font-bold text-sm md:text-base group-hover:text-red-500 transition-colors">{org}</span>
-                                    <ArrowUpRight className="w-4 h-4 text-gray-600 opacity-0 group-hover:opacity-100 transition-all mt-2" />
-                                </div>
-                            ))}
+                        {/* Swipeable Carousel */}
+                        <div
+                            className="relative -mx-6 px-6 lg:mx-0 lg:px-0"
+                            onMouseEnter={() => setIsPaused(true)}
+                            onMouseLeave={() => setIsPaused(false)}
+                            onTouchStart={() => setIsPaused(true)}
+                            onTouchEnd={() => setIsPaused(false)}
+                        >
+                            {/* Controls */}
+                            <div className="absolute -top-12 right-6 lg:right-0 flex gap-2">
+                                <button
+                                    onClick={() => {
+                                        if (scrollRef.current) scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+                                    }}
+                                    className="p-2 rounded-full border border-white/20 hover:bg-white/10 hover:border-red-500 transition-colors group"
+                                    aria-label="Scroll Left"
+                                >
+                                    <ChevronLeft className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        if (scrollRef.current) scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+                                    }}
+                                    className="p-2 rounded-full border border-white/20 hover:bg-white/10 hover:border-red-500 transition-colors group"
+                                    aria-label="Scroll Right"
+                                >
+                                    <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                                </button>
+                            </div>
+
+                            <div
+                                ref={scrollRef}
+                                className="flex gap-4 overflow-x-auto pb-4 no-scrollbar snap-x cursor-grab active:cursor-grabbing"
+                                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                            >
+                                {displayOrgs.map((org, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="flex-none w-64 snap-center flex flex-col items-center justify-center text-center p-6 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all group select-none"
+                                    >
+                                        <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-red-600 transition-colors duration-300">
+                                            <Building2 className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" />
+                                        </div>
+                                        <span className="font-bold text-sm md:text-base text-gray-200 group-hover:text-white transition-colors line-clamp-1">{org}</span>
+                                        <ArrowUpRight className="w-4 h-4 text-gray-600 opacity-0 group-hover:opacity-100 transition-all mt-2" />
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Swipe Hint Overlay (Visible only on mobile initially or implied) */}
+                            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-black/80 to-transparent pointer-events-none lg:hidden" />
                         </div>
 
                         {/* Disclaimer */}

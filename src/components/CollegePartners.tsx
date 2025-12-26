@@ -37,14 +37,24 @@ export const CollegePartners: React.FC = () => {
                     </div>
                 </div>
 
-                {/* College List Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16 font-medium">
-                    {colleges.map((college, idx) => (
-                        <div key={idx} className="flex items-center gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-gray-100 md:border-none">
-                            <div className="w-2 h-2 rounded-full bg-red-600 shrink-0" />
-                            <span className="text-gray-800">{college}</span>
-                        </div>
-                    ))}
+                {/* College List Carousel */}
+                <div className="relative w-full overflow-hidden mask-gradient-x">
+                    {/* Gradient Masks for smooth fade edges */}
+                    <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-white to-transparent z-10" />
+                    <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-white to-transparent z-10" />
+
+                    <div className="flex animate-marquee hover:pause whitespace-nowrap py-8 gap-8">
+                        {[...colleges, ...colleges, ...colleges].map((college, idx) => (
+                            <div key={idx} className="flex flex-col items-center justify-center p-6 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all w-64 md:w-72 shrink-0 group">
+                                <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-red-600 transition-colors duration-300">
+                                    <School className="w-8 h-8 text-red-600 group-hover:text-white transition-colors duration-300" />
+                                </div>
+                                <h4 className="text-sm font-bold text-center text-gray-800 whitespace-normal line-clamp-2 h-10 flex items-center justify-center">
+                                    {college}
+                                </h4>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Footer Line */}
