@@ -1,6 +1,31 @@
-
-import React from 'react';
+"use client"
+import React, { useEffect, useRef } from 'react';
 import { Users, Award, Instagram, Linkedin, Youtube, MessageCircle } from 'lucide-react';
+import { useInView, useMotionValue, useSpring } from 'framer-motion';
+
+const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
+    const ref = useRef<HTMLSpanElement>(null);
+    const inView = useInView(ref, { once: true, margin: "-100px" });
+    const motionValue = useMotionValue(0);
+    const springValue = useSpring(motionValue, { damping: 50, stiffness: 100 });
+
+    useEffect(() => {
+        if (inView) {
+            motionValue.set(value);
+        }
+    }, [inView, value, motionValue]);
+
+    useEffect(() => {
+        const unsubscribe = springValue.on("change", (latest) => {
+            if (ref.current) {
+                ref.current.textContent = `${Math.floor(latest)}${suffix}`;
+            }
+        });
+        return () => unsubscribe();
+    }, [springValue, suffix]);
+
+    return <span ref={ref}>0{suffix}</span>;
+};
 
 export const EngagementMetrics: React.FC = () => {
     return (
@@ -31,7 +56,9 @@ export const EngagementMetrics: React.FC = () => {
                     <div className="col-span-1 md:col-span-2 bg-black text-white p-8 rounded-3xl shadow-xl flex flex-col justify-between min-h-[200px] group hover:scale-[1.02] transition-transform duration-300">
                         <Users className="w-10 h-10 text-red-600 mb-4" />
                         <div>
-                            <h3 className="text-5xl md:text-6xl font-syncopate font-bold text-white mb-2">100k+</h3>
+                            <h3 className="text-5xl md:text-6xl font-syncopate font-bold text-white mb-2">
+                                <Counter value={100} suffix="k+" />
+                            </h3>
                             <p className="text-gray-400 font-medium">Learner interactions recorded through academic programs</p>
                         </div>
                     </div>
@@ -39,7 +66,9 @@ export const EngagementMetrics: React.FC = () => {
                     <div className="col-span-1 md:col-span-2 bg-red-600 text-white p-8 rounded-3xl shadow-xl flex flex-col justify-between min-h-[200px] group hover:scale-[1.02] transition-transform duration-300">
                         <Award className="w-10 h-10 text-black mb-4" />
                         <div>
-                            <h3 className="text-5xl md:text-6xl font-syncopate font-bold text-white mb-2">50k+</h3>
+                            <h3 className="text-5xl md:text-6xl font-syncopate font-bold text-white mb-2">
+                                <Counter value={50} suffix="k+" />
+                            </h3>
                             <p className="text-white/80 font-medium">Participants across institutional events and competitions</p>
                         </div>
                     </div>
@@ -49,22 +78,30 @@ export const EngagementMetrics: React.FC = () => {
                     {/* Socials */}
                     <div className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-red-200 transition-colors group">
                         <Instagram className="w-8 h-8 text-red-600 mb-4 group-hover:rotate-12 transition-transform" />
-                        <h4 className="text-3xl font-bold text-black mb-1">10k+</h4>
+                        <h4 className="text-3xl font-bold text-black mb-1">
+                            <Counter value={10} suffix="k+" />
+                        </h4>
                         <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Instagram</p>
                     </div>
                     <div className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-blue-200 transition-colors group">
                         <Linkedin className="w-8 h-8 text-blue-700 mb-4 group-hover:rotate-12 transition-transform" />
-                        <h4 className="text-3xl font-bold text-black mb-1">2k+</h4>
+                        <h4 className="text-3xl font-bold text-black mb-1">
+                            <Counter value={2} suffix="k+" />
+                        </h4>
                         <p className="text-xs font-bold uppercase tracking-widest text-gray-400">LinkedIn</p>
                     </div>
                     <div className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-red-600 transition-colors group">
                         <Youtube className="w-8 h-8 text-red-600 mb-4 group-hover:rotate-12 transition-transform" />
-                        <h4 className="text-3xl font-bold text-black mb-1">22k+</h4>
+                        <h4 className="text-3xl font-bold text-black mb-1">
+                            <Counter value={22} suffix="k+" />
+                        </h4>
                         <p className="text-xs font-bold uppercase tracking-widest text-gray-400">YouTube</p>
                     </div>
                     <div className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-green-200 transition-colors group">
                         <MessageCircle className="w-8 h-8 text-green-600 mb-4 group-hover:rotate-12 transition-transform" />
-                        <h4 className="text-3xl font-bold text-black mb-1">7k+</h4>
+                        <h4 className="text-3xl font-bold text-black mb-1">
+                            <Counter value={7} suffix="k+" />
+                        </h4>
                         <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Community</p>
                     </div>
                 </div>

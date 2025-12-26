@@ -1,7 +1,7 @@
-
-import React from 'react';
+"use client"
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { School, GraduationCap } from 'lucide-react';
+import { School, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const CollegePartners: React.FC = () => {
     const colleges = [
@@ -16,6 +16,33 @@ export const CollegePartners: React.FC = () => {
         { name: "Chandigarh Group of Colleges, Landran", logo: null },
         { name: "Galgotias Institute", logo: null }
     ];
+
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const [isPaused, setIsPaused] = useState(false);
+
+    useEffect(() => {
+        const scrollContainer = scrollRef.current;
+        if (!scrollContainer) return;
+
+        let animationFrameId: number;
+
+        const scroll = () => {
+            if (!isPaused && scrollContainer) {
+                if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+                    scrollContainer.scrollLeft = 0;
+                } else {
+                    scrollContainer.scrollLeft += 1; // Adjust speed here
+                }
+            }
+            animationFrameId = requestAnimationFrame(scroll);
+        };
+
+        animationFrameId = requestAnimationFrame(scroll);
+
+        return () => cancelAnimationFrame(animationFrameId);
+    }, [isPaused]);
+
+    const displayColleges = [...colleges, ...colleges, ...colleges];
 
     return (
         <section id="partners" className="bg-white py-24 relative overflow-hidden border-t border-gray-100">
@@ -39,14 +66,42 @@ export const CollegePartners: React.FC = () => {
                 </div>
 
                 {/* College List Carousel */}
-                <div className="relative w-full overflow-hidden mask-gradient-x">
-                    {/* Gradient Masks for smooth fade edges */}
-                    <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-white to-transparent z-10" />
-                    <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-white to-transparent z-10" />
+                <div
+                    className="relative w-full"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onTouchStart={() => setIsPaused(true)}
+                    onTouchEnd={() => setIsPaused(false)}
+                >
+                    {/* Controls */}
+                    <div className="absolute -top-12 right-0 hidden lg:flex gap-2">
+                        <button
+                            onClick={() => {
+                                if (scrollRef.current) scrollRef.current.scrollBy({ left: -288, behavior: 'smooth' });
+                            }}
+                            className="p-2 rounded-full border border-gray-200 hover:bg-gray-50 hover:border-red-500 transition-colors group"
+                            aria-label="Scroll Left"
+                        >
+                            <ChevronLeft className="w-5 h-5 text-gray-400 group-hover:text-red-600" />
+                        </button>
+                        <button
+                            onClick={() => {
+                                if (scrollRef.current) scrollRef.current.scrollBy({ left: 288, behavior: 'smooth' });
+                            }}
+                            className="p-2 rounded-full border border-gray-200 hover:bg-gray-50 hover:border-red-500 transition-colors group"
+                            aria-label="Scroll Right"
+                        >
+                            <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-red-600" />
+                        </button>
+                    </div>
 
-                    <div className="flex animate-marquee hover:pause whitespace-nowrap py-8 gap-8">
-                        {[...colleges, ...colleges, ...colleges].map((college, idx) => (
-                            <div key={idx} className="flex flex-col items-center justify-center p-6 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all w-64 md:w-72 shrink-0 group">
+                    <div
+                        ref={scrollRef}
+                        className="flex gap-8 overflow-x-auto pb-4 no-scrollbar cursor-grab active:cursor-grabbing"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                        {displayColleges.map((college, idx) => (
+                            <div key={idx} className="flex flex-col items-center justify-center p-6 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all w-64 md:w-72 shrink-0 group select-none">
                                 <div className="w-20 h-20 relative flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300">
                                     {college.logo ? (
                                         <Image
@@ -70,7 +125,7 @@ export const CollegePartners: React.FC = () => {
                 </div>
 
                 {/* Footer Line */}
-                <div className="text-center border-t border-gray-100 pt-8">
+                <div className="text-center border-t border-gray-100 pt-8 mt-8">
                     <p className="text-gray-400 text-sm italic">
                         Detailed engagement references may be shared with authorized institutional representatives upon request.
                     </p>

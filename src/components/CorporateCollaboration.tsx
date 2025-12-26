@@ -117,7 +117,7 @@ export const CorporateCollaboration: React.FC = () => {
                                         if (scrollRef.current) scrollRef.current.scrollBy({ left: -272, behavior: 'smooth' });
                                     }}
                                     className="p-2 rounded-full border border-white/20 hover:bg-white/10 hover:border-red-500 transition-colors group"
-                                    aria-label="Scroll Left"
+                                    aria-label="Scroll Left" 
                                 >
                                     <ChevronLeft className="w-5 h-5 text-gray-400 group-hover:text-white" />
                                 </button>
