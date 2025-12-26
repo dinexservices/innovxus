@@ -4,71 +4,76 @@ import { Mail, Phone, MapPin, Instagram, Twitter, Facebook, ExternalLink } from 
 
 export const Contact: React.FC = () => {
   return (
-    <section id="contact" className="relative py-32 overflow-hidden bg-white">
+    <section id="contact" className="relative py-24 lg:py-32 overflow-hidden bg-white">
       {/* Background Event Visual - Made lighter/subtle */}
-      <div className="absolute inset-0 z-0 opacity-10">
+      <div className="absolute inset-0 z-0 opacity-[0.03]">
         <img
           src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1920&auto=format&fit=crop"
           alt="Gala background"
           className="w-full h-full object-cover grayscale"
         />
-        <div className="absolute inset-0 bg-white/50" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-red-600 font-bold uppercase tracking-widest mb-4">Get In Touch</h2>
-          <h3 className="text-4xl md:text-6xl font-syncopate font-bold mb-10 leading-tight text-black">
-            LET'S <span className="text-red-600">COLLABORATE</span>
-          </h3>
-          <p className="text-gray-600 text-xl mb-20 max-w-2xl mx-auto leading-relaxed">
-            Ready to elevate your campus culture? Our team of architects is waiting to design your next legacy. Connect with us through any of our channels below.
-          </p>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16 md:mb-24">
+            <h2 className="text-red-600 font-bold uppercase tracking-[0.2em] mb-4 text-sm md:text-base">Get In Touch</h2>
+            <h3 className="text-4xl md:text-6xl font-syncopate font-bold mb-6 leading-none text-black">
+              LET'S <span className="text-red-600">COLLABORATE</span>
+            </h3>
+            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light">
+              Ready to elevate your campus culture? Our team is waiting to design your next legacy.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl group hover:border-red-600/50 transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-red-50 rounded-2xl text-red-600 flex items-center justify-center mx-auto mb-6 group-hover:bg-red-600 group-hover:text-white transition-all">
-                <Mail size={32} />
+            {/* Email Card */}
+            <div className="bg-white p-8 md:p-10 border border-gray-200 hover:border-red-600 transition-colors duration-300 group text-center">
+              <div className="w-14 h-14 bg-gray-50 rounded-full text-black flex items-center justify-center mx-auto mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                <Mail size={24} />
               </div>
-              <h4 className="font-bold text-xl mb-2 text-black">Email Us</h4>
-              <p className="text-gray-500">hello@innovxus.io</p>
+              <h4 className="font-bold text-lg mb-3 text-black uppercase tracking-wide">Email Us</h4>
+              <a href="mailto:hello@innovxus.io" className="text-gray-600 hover:text-red-600 transition-colors text-base md:text-lg">hello@innovxus.io</a>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl group hover:border-red-600/50 transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-red-50 rounded-2xl text-red-600 flex items-center justify-center mx-auto mb-6 group-hover:bg-red-600 group-hover:text-white transition-all">
-                <Phone size={32} />
+            {/* Phone Card */}
+            <div className="bg-white p-8 md:p-10 border border-gray-200 hover:border-red-600 transition-colors duration-300 group text-center">
+              <div className="w-14 h-14 bg-gray-50 rounded-full text-black flex items-center justify-center mx-auto mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                <Phone size={24} />
               </div>
-              <h4 className="font-bold text-xl mb-2 text-black">Call Us</h4>
-              <p className="text-gray-500">+1 (555) 987-6543</p>
+              <h4 className="font-bold text-lg mb-3 text-black uppercase tracking-wide">Call Us</h4>
+              <p className="text-gray-600 text-base md:text-lg">+1 (555) 987-6543</p>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl group hover:border-red-600/50 transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-red-50 rounded-2xl text-red-600 flex items-center justify-center mx-auto mb-6 group-hover:bg-red-600 group-hover:text-white transition-all">
-                <MapPin size={32} />
+            {/* Studio Card */}
+            <div className="bg-white p-8 md:p-10 border border-gray-200 hover:border-red-600 transition-colors duration-300 group text-center">
+              <div className="w-14 h-14 bg-gray-50 rounded-full text-black flex items-center justify-center mx-auto mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                <MapPin size={24} />
               </div>
-              <h4 className="font-bold text-xl mb-2 text-black">Our Studio</h4>
-              <p className="text-gray-500">Creative District, London</p>
+              <h4 className="font-bold text-lg mb-3 text-black uppercase tracking-wide">Visit Us</h4>
+              <p className="text-gray-600 text-base md:text-lg">Creative District, London</p>
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-10">
-            <div className="flex gap-6">
-              <a href="#" className="p-5 bg-gray-100 rounded-full text-black hover:bg-red-600 hover:text-white transition-all transform hover:scale-110 border border-gray-200">
-                <Instagram size={28} />
+          <div className="flex flex-col items-center gap-12 border-t border-gray-100 pt-16">
+            <div className="flex gap-4">
+              <a href="#" className="p-4 rounded-full text-gray-400 hover:bg-black hover:text-white transition-all duration-300 border border-transparent hover:border-black">
+                <Instagram size={24} />
               </a>
-              <a href="#" className="p-5 bg-gray-100 rounded-full text-black hover:bg-red-600 hover:text-white transition-all transform hover:scale-110 border border-gray-200">
-                <Twitter size={28} />
+              <a href="#" className="p-4 rounded-full text-gray-400 hover:bg-black hover:text-white transition-all duration-300 border border-transparent hover:border-black">
+                <Twitter size={24} />
               </a>
-              <a href="#" className="p-5 bg-gray-100 rounded-full text-black hover:bg-red-600 hover:text-white transition-all transform hover:scale-110 border border-gray-200">
-                <Facebook size={28} />
+              <a href="#" className="p-4 rounded-full text-gray-400 hover:bg-black hover:text-white transition-all duration-300 border border-transparent hover:border-black">
+                <Facebook size={24} />
               </a>
             </div>
 
             <a
               href="mailto:hello@innovxus.io"
-              className="px-12 py-6 bg-red-600 text-white font-bold rounded-full flex items-center gap-3 hover:bg-black transition-all transform hover:scale-105 shadow-2xl red-glow font-syncopate text-sm"
+              className="group flex items-center gap-3 text-black font-bold text-sm tracking-[0.2em] hover:text-red-600 transition-colors"
             >
-              START YOUR PROJECT <ExternalLink size={20} />
+              <span>START YOUR PROJECT</span>
+              <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
         </div>

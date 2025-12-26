@@ -14,7 +14,9 @@ export const Hero: React.FC = () => {
     return (
         <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32 pb-20 bg-white">
             <div className="relative z-10 container mx-auto px-6 text-center mb-4">
-                <h1 className="text-[clamp(2.5rem,8vw,8rem)] md:text-9xl font-syncopate font-extrabold mb-6 tracking-tighter animate-in slide-in-from-bottom duration-1000 leading-tight">
+                <h1
+                    className="text-[clamp(2.5rem,8vw,8rem)] md:text-9xl font-syncopate font-extrabold mb-6 tracking-tighter animate-in slide-in-from-bottom duration-1000 leading-tight"
+                >
                     <span className="text-red-600 block">INNOVXUS</span>
                     <span className="text-black block text-xl md:text-4xl mt-2 tracking-normal font-bold">ACADEMIC & INDUSTRY INTEGRATION PLATFORM</span>
                 </h1>
@@ -26,7 +28,7 @@ export const Hero: React.FC = () => {
                     <a href="#contact" className="w-full md:w-auto px-8 md:px-10 py-4 md:py-5 bg-red-600 text-white font-bold rounded-full hover:bg-black transition-all transform hover:scale-105 shadow-xl  text-lg tracking-widest text-center">
                         Get In Touch
                     </a>
-                   
+
                 </div>
             </div>
 

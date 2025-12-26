@@ -6,9 +6,12 @@ import { GalleryImage } from '@/types';
 import { X, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 
 const HIGHLIGHT_IMAGES = [
-    { id: 'h1', url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1200&auto=format&fit=crop', caption: 'Mainstage Madness' },
-    { id: 'h2', url: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1200&auto=format&fit=crop', caption: 'Midnight Rhythms' },
-    { id: 'h3', url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop', caption: 'The Grand Entrance' },
+    { id: 'h1', url: '/media/img1.webp', caption: 'Mainstage Madness' },
+    { id: 'h2', url: '/media/img2.webp', caption: 'Midnight Rhythms' },
+    { id: 'h3', url: '/media/img3.webp', caption: 'The Grand Entrance' },
+    { id: 'h4', url: '/media/img4.webp', caption: 'Crowd Connection' },
+    { id: 'h5', url: '/media/img5.webp', caption: 'Electric Vibe' },
+    { id: 'h6', url: '/media/img6.webp', caption: 'Unforgettable Nights' },
 ];
 
 const GalleryCarousel: React.FC = () => {
@@ -128,6 +131,11 @@ const GalleryItem: React.FC<{ img: GalleryImage; idx: number; onOpen: (img: Gall
 
 export const Gallery: React.FC = () => {
     const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+    const [offsetY, setOffsetY] = useState(0);
+
+    useEffect(() => {
+        // Removed scroll listener for parallax
+    }, []);
 
     const openModal = (img: GalleryImage) => {
         setSelectedImage(img);
@@ -143,12 +151,14 @@ export const Gallery: React.FC = () => {
         <section id="gallery" className="relative py-32 overflow-hidden bg-[#050505]">
             {/* Background Graphic */}
             <div className="absolute inset-0 z-0 opacity-5">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(220,38,38,0.2),transparent_70%)]" />
+                <div
+                    className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(220,38,38,0.2),transparent_70%)]"
+                />
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-20">
-                    <h2 className="text-red-600 font-bold uppercase tracking-[0.3em] mb-4 animate-pulse">Archives</h2>
+                    <h2 className="text-red-600 font-bold uppercase tracking-[0.3em] mb-4">Archives</h2>
                     <h3 className="text-4xl md:text-8xl font-syncopate font-bold text-white tracking-tighter mb-6 md:mb-10">
                         VISUAL <span className="text-red-600">STORY</span>
                     </h3>
@@ -160,10 +170,10 @@ export const Gallery: React.FC = () => {
                 {/* New Feature: Event Highlights Carousel */}
                 <GalleryCarousel />
 
-             
+
             </div>
 
-       
+
         </section>
     );
 };

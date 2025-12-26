@@ -47,7 +47,7 @@ export const AcademicPrograms: React.FC = () => {
     };
 
     return (
-        <section className="bg-white py-24 relative overflow-hidden text-black border-t border-gray-100">
+        <section id="programs" className="bg-white py-24 relative overflow-hidden text-black border-t border-gray-100">
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-red-600 font-bold uppercase tracking-[0.2em] mb-4 text-sm md:text-base">

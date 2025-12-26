@@ -7,7 +7,7 @@ export const UpcomingEvents: React.FC = () => {
   return (
     <section id="events" className="relative py-24 overflow-hidden ">
       {/* Background Image - Lighter */}
-   
+
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">

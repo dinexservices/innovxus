@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { Briefcase, Boxes, PenTool, AlertTriangle, ArrowUpRight, Building2, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const CorporateCollaboration: React.FC = () => {
@@ -10,15 +11,15 @@ export const CorporateCollaboration: React.FC = () => {
     ];
 
     const organizations = [
-        "IDFC First Bank",
-        "Physics Wallah",
-        "Perplexity AI",
-        "Rotary International",
-        "Interview Buddy",
-        "Next Bench",
-        "CodeUnia",
-        "HiDevs",
-        "DriftX"
+        { name: "IDFC First Bank", logo: "/company logo/idfc.jpg" },
+        { name: "Physics Wallah", logo: "/company logo/physics.webp" },
+        { name: "Perplexity AI", logo: "/company logo/perplexity.png" },
+        { name: "Rotary International", logo: "/company logo/rotary.svg" },
+        { name: "Interview Buddy", logo: "/company logo/interview.webp" },
+        { name: "Next Bench", logo: "/company logo/next.jpg" },
+        { name: "CodeUnia", logo: "/company logo/code.png" },
+        { name: "HiDevs", logo: "/company logo/hi.jpg" },
+        { name: "DriftX", logo: "/company logo/drift.webp" }
     ];
 
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -50,7 +51,7 @@ export const CorporateCollaboration: React.FC = () => {
     const displayOrgs = [...organizations, ...organizations, ...organizations];
 
     return (
-        <section className="bg-black text-white py-24 relative overflow-hidden">
+        <section id="corporate" className="bg-black text-white py-24 relative overflow-hidden">
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="max-w-4xl mb-16">
@@ -110,10 +111,10 @@ export const CorporateCollaboration: React.FC = () => {
                             onTouchEnd={() => setIsPaused(false)}
                         >
                             {/* Controls */}
-                            <div className="absolute -top-12 right-6 lg:right-0 flex gap-2">
+                            <div className="absolute -top-12 right-6 lg:right-0 hidden lg:flex gap-2">
                                 <button
                                     onClick={() => {
-                                        if (scrollRef.current) scrollRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+                                        if (scrollRef.current) scrollRef.current.scrollBy({ left: -272, behavior: 'smooth' });
                                     }}
                                     className="p-2 rounded-full border border-white/20 hover:bg-white/10 hover:border-red-500 transition-colors group"
                                     aria-label="Scroll Left"
@@ -122,7 +123,7 @@ export const CorporateCollaboration: React.FC = () => {
                                 </button>
                                 <button
                                     onClick={() => {
-                                        if (scrollRef.current) scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+                                        if (scrollRef.current) scrollRef.current.scrollBy({ left: 272, behavior: 'smooth' });
                                     }}
                                     className="p-2 rounded-full border border-white/20 hover:bg-white/10 hover:border-red-500 transition-colors group"
                                     aria-label="Scroll Right"
@@ -133,18 +134,23 @@ export const CorporateCollaboration: React.FC = () => {
 
                             <div
                                 ref={scrollRef}
-                                className="flex gap-4 overflow-x-auto pb-4 no-scrollbar snap-x cursor-grab active:cursor-grabbing"
+                                className="flex gap-4 overflow-x-auto pb-4 no-scrollbar cursor-grab active:cursor-grabbing"
                                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                             >
                                 {displayOrgs.map((org, idx) => (
                                     <div
                                         key={idx}
-                                        className="flex-none w-64 snap-center flex flex-col items-center justify-center text-center p-6 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all group select-none"
+                                        className="flex-none w-64 flex flex-col items-center justify-center text-center p-6 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all group select-none"
                                     >
-                                        <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-red-600 transition-colors duration-300">
-                                            <Building2 className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" />
+                                        <div className="w-16 h-16 relative bg-white rounded-full flex items-center justify-center mb-4 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                                            <Image
+                                                src={org.logo}
+                                                alt={org.name}
+                                                fill
+                                                className="object-contain p-2"
+                                            />
                                         </div>
-                                        <span className="font-bold text-sm md:text-base text-gray-200 group-hover:text-white transition-colors line-clamp-1">{org}</span>
+                                        <span className="font-bold text-sm md:text-base text-gray-200 group-hover:text-white transition-colors line-clamp-1">{org.name}</span>
                                         <ArrowUpRight className="w-4 h-4 text-gray-600 opacity-0 group-hover:opacity-100 transition-all mt-2" />
                                     </div>
                                 ))}
@@ -161,6 +167,6 @@ export const CorporateCollaboration: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };

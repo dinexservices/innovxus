@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Image from 'next/image';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { Marquee } from '@/components/Marquee';
@@ -33,18 +34,23 @@ const Home: React.FC = () => {
 
       {/* <UpcomingEvents /> */}
       {/* <PastEventsTimeline /> */}
-      
+
       <Gallery />
       <Contact />
-      
+
       <footer className="py-12 border-t border-white/5 bg-black">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-2xl font-syncopate font-bold">
-            INNOVXUS<span className="text-red-600">.</span>
+            <Image src="/logo.png" alt="Innovxus Logo" width={120} height={40} className="object-contain" />
           </div>
-          <p className="text-gray-500 text-sm">
-            © 2024 Innovxus Events Organization. All rights reserved.
-          </p>
+          <div className="flex flex-col items-center md:items-start gap-1">
+            <p className="text-gray-500 text-sm">
+              © 2024 Innovxus Events Organization. All rights reserved.
+            </p>
+            <p className="text-gray-600 text-xs mt-1">
+              Developed by <a href="https://dinestx.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-red-600 transition-colors">Dinex Services</a>
+            </p>
+          </div>
           <div className="flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-400">
             <a href="#" className="hover:text-red-600 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-red-600 transition-colors">Terms of Service</a>

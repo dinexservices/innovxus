@@ -43,8 +43,8 @@ export const EngagementMetrics: React.FC = () => {
                             <p className="text-white/80 font-medium">Participants across institutional events and competitions</p>
                         </div>
                     </div>
-                    </div>
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                </div>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
 
                     {/* Socials */}
                     <div className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-red-200 transition-colors group">
