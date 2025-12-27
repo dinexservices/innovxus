@@ -12,9 +12,9 @@ export const CollegePartners: React.FC = () => {
         { name: "Noida Institute of Engineering and Technology, Greater Noida", logo: "/colleges logo/niet.svg" },
         { name: "Vishveshwarya Group Of Institution, Greater Noida", logo: "/colleges logo/vishveshwarya.avif" },
         { name: "Keshav Memorial Institute of Technology (KMIT)", logo: "/colleges logo/kesav.jpg" },
-        { name: "Chandigarh University", logo: null },
-        { name: "Chandigarh Group of Colleges, Landran", logo: null },
-        { name: "Galgotias Institute", logo: null }
+        { name: "Chandigarh University", logo: "/colleges logo/cu.jpg" },
+        { name: "Chandigarh Group of Colleges, Landran", logo: "/colleges logo/cgc.jpg" },
+        { name: "Galgotias Institute", logo: "/colleges logo/galgotias.jpg" }
     ];
 
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -101,8 +101,8 @@ export const CollegePartners: React.FC = () => {
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     >
                         {displayColleges.map((college, idx) => (
-                            <div key={idx} className="flex flex-col items-center justify-center p-6 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all w-64 md:w-72 shrink-0 group select-none">
-                                <div className="w-20 h-20 relative flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300">
+                            <div key={idx} className="relative flex flex-col items-center justify-center p-6 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all w-64 h-48 md:w-72 shrink-0 group select-none overflow-hidden">
+                                <div className="w-24 h-24 relative flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                                     {college.logo ? (
                                         <Image
                                             src={college.logo}
@@ -111,14 +111,18 @@ export const CollegePartners: React.FC = () => {
                                             className="object-contain p-1"
                                         />
                                     ) : (
-                                        <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
-                                            <School className="w-8 h-8 text-red-600 group-hover:text-white transition-colors duration-300" />
+                                        <div className="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
+                                            <School className="w-10 h-10 text-red-600 group-hover:text-white transition-colors duration-300" />
                                         </div>
                                     )}
                                 </div>
-                                <h4 className="text-sm font-bold text-center text-gray-800 whitespace-normal line-clamp-2 h-10 flex items-center justify-center">
-                                    {college.name}
-                                </h4>
+
+                                {/* Overlay Name on Hover */}
+                                <div className="absolute inset-0 bg-white/95 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-red-600/10">
+                                    <h4 className="text-base font-bold text-center text-black">
+                                        {college.name}
+                                    </h4>
+                                </div>
                             </div>
                         ))}
                     </div>

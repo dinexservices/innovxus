@@ -91,80 +91,117 @@ export const CorporateCollaboration: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* 6.2 Organizations Engaged */}
-                    <div>
+                    {/* 6.2 Video Play Section (New) */}
+                    <div className="flex flex-col justify-center">
                         <h4 className="text-xl font-bold mb-8 border-l-4 border-white pl-4 uppercase tracking-wide">
-                            6.2 Organizations Engaged
+                            6.2 Innovxus in Action
                         </h4>
-                        <div className="mb-6">
-                            <h5 className="text-gray-400 text-sm font-medium mb-4 uppercase tracking-widest">
+                        <div className="relative w-full aspect-video rounded-2xl overflow-hidden group cursor-pointer border border-white/10 hover:border-red-600/50 transition-all shadow-2xl bg-gray-900">
+                            {/* Placeholder Image */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black">
+                                <Image
+                                    src="/media/img1.webp"
+                                    alt="Innovxus Highlight"
+                                    fill
+                                    className="object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500"
+                                />
+                            </div>
+
+                            {/* Play Button */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-20 h-20 bg-red-600/90 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_30px_rgba(220,38,38,0.5)]">
+                                    <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-white border-b-[10px] border-b-transparent ml-1"></div>
+                                </div>
+                            </div>
+
+                            {/* Text Overlay */}
+                            <div className="absolute bottom-6 left-6 right-6">
+                                <h5 className="text-white font-bold text-xl mb-1">Empowering Innovation</h5>
+                                <p className="text-gray-300 text-sm">Watch how we bridge academia and industry.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 6.3 Organizations Engaged (Moved Below) */}
+                <div className="mt-16 pt-16 border-t border-white/10">
+                    <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-6">
+                        <div>
+                            <h4 className="text-xl font-bold mb-2 border-l-4 border-white pl-4 uppercase tracking-wide">
+                                6.3 Organizations Engaged
+                            </h4>
+                            <h5 className="text-gray-400 text-sm font-medium uppercase tracking-widest pl-5">
                                 Industry, Academic & Ecosystem Organizations
                             </h5>
                         </div>
 
-                        {/* Swipeable Carousel */}
-                        <div
-                            className="relative -mx-6 px-6 lg:mx-0 lg:px-0"
-                            onMouseEnter={() => setIsPaused(true)}
-                            onMouseLeave={() => setIsPaused(false)}
-                            onTouchStart={() => setIsPaused(true)}
-                            onTouchEnd={() => setIsPaused(false)}
-                        >
-                            {/* Controls */}
-                            <div className="absolute -top-12 right-6 lg:right-0 hidden lg:flex gap-2">
-                                <button
-                                    onClick={() => {
-                                        if (scrollRef.current) scrollRef.current.scrollBy({ left: -272, behavior: 'smooth' });
-                                    }}
-                                    className="p-2 rounded-full border border-white/20 hover:bg-white/10 hover:border-red-500 transition-colors group"
-                                    aria-label="Scroll Left" 
-                                >
-                                    <ChevronLeft className="w-5 h-5 text-gray-400 group-hover:text-white" />
-                                </button>
-                                <button
-                                    onClick={() => {
-                                        if (scrollRef.current) scrollRef.current.scrollBy({ left: 272, behavior: 'smooth' });
-                                    }}
-                                    className="p-2 rounded-full border border-white/20 hover:bg-white/10 hover:border-red-500 transition-colors group"
-                                    aria-label="Scroll Right"
-                                >
-                                    <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-white" />
-                                </button>
-                            </div>
-
-                            <div
-                                ref={scrollRef}
-                                className="flex gap-4 overflow-x-auto pb-4 no-scrollbar cursor-grab active:cursor-grabbing"
-                                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                        {/* Controls (Moved here) */}
+                        <div className="hidden lg:flex gap-2">
+                            <button
+                                onClick={() => {
+                                    if (scrollRef.current) scrollRef.current.scrollBy({ left: -272, behavior: 'smooth' });
+                                }}
+                                className="p-2 rounded-full border border-white/20 hover:bg-white/10 hover:border-red-500 transition-colors group"
+                                aria-label="Scroll Left"
                             >
-                                {displayOrgs.map((org, idx) => (
-                                    <div
-                                        key={idx}
-                                        className="flex-none w-64 flex flex-col items-center justify-center text-center p-6 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all group select-none"
-                                    >
-                                        <div className="w-16 h-16 relative bg-white rounded-full flex items-center justify-center mb-4 overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                                            <Image
-                                                src={org.logo}
-                                                alt={org.name}
-                                                fill
-                                                className="object-contain p-2"
-                                            />
-                                        </div>
-                                        <span className="font-bold text-sm md:text-base text-gray-200 group-hover:text-white transition-colors line-clamp-1">{org.name}</span>
-                                        <ArrowUpRight className="w-4 h-4 text-gray-600 opacity-0 group-hover:opacity-100 transition-all mt-2" />
-                                    </div>
-                                ))}
-                            </div>
+                                <ChevronLeft className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                            </button>
+                            <button
+                                onClick={() => {
+                                    if (scrollRef.current) scrollRef.current.scrollBy({ left: 272, behavior: 'smooth' });
+                                }}
+                                className="p-2 rounded-full border border-white/20 hover:bg-white/10 hover:border-red-500 transition-colors group"
+                                aria-label="Scroll Right"
+                            >
+                                <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                            </button>
+                        </div>
+                    </div>
 
-                            {/* Swipe Hint Overlay (Visible only on mobile initially or implied) */}
-                            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-black/80 to-transparent pointer-events-none lg:hidden" />
+                    {/* Swipeable Carousel */}
+                    <div
+                        className="relative -mx-6 px-6 lg:mx-0 lg:px-0"
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
+                        onTouchStart={() => setIsPaused(true)}
+                        onTouchEnd={() => setIsPaused(false)}
+                    >
+                        <div
+                            ref={scrollRef}
+                            className="flex gap-4 overflow-x-auto pb-4 no-scrollbar cursor-grab active:cursor-grabbing"
+                            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                        >
+                            {displayOrgs.map((org, idx) => (
+                                <div
+                                    key={idx}
+                                    className="flex-none w-64 h-48 flex flex-col items-center justify-center text-center p-6 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all group select-none relative overflow-hidden"
+                                >
+                                    <div className="w-24 h-24 relative bg-white rounded-full flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-110">
+                                        <Image
+                                            src={org.logo}
+                                            alt={org.name}
+                                            fill
+                                            className="object-contain p-3"
+                                        />
+                                    </div>
+
+                                    {/* Overlay Name on Hover */}
+                                    <div className="absolute inset-0 bg-black/90 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <span className="font-bold text-base text-white">{org.name}</span>
+                                        <ArrowUpRight className="w-4 h-4 text-red-500 absolute top-4 right-4" />
+                                    </div>
+                                </div>
+                            ))}
                         </div>
 
-                        {/* Disclaimer */}
-                        <p className="text-gray-500 text-xs mt-6 italic">
-                            * Engagements vary in scope and nature and do not necessarily imply formal partnerships unless explicitly stated.
-                        </p>
+                        {/* Swipe Hint Overlay (Visible only on mobile initially or implied) */}
+                        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-black/80 to-transparent pointer-events-none lg:hidden" />
                     </div>
+
+                    {/* Disclaimer */}
+                    <p className="text-gray-500 text-xs mt-6 italic">
+                        * Engagements vary in scope and nature and do not necessarily imply formal partnerships unless explicitly stated.
+                    </p>
                 </div>
             </div>
         </section >

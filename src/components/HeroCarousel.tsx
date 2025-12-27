@@ -34,21 +34,19 @@ export const HeroCarousel: React.FC = () => {
     const absDiff = Math.abs(normalizedDiff);
 
     // Position
-    const translateX = normalizedDiff * 280; // Distance between items
-    const translateZ = -absDiff * 150; // Push non-active items back
+    // For horizontal layout, we place them side-by-side
+    // Card width is ~350px (md). We give them some spacing.
+    // We want the active item centered.
+    const translateX = normalizedDiff * 380; // Distance between items (350px + 30px gap)
 
-    // Rotation for "Cylindrical" effect
-    // As items move away from center, they rotate towards the viewer
-    const rotateY = normalizedDiff * -25;
+    // Scale: Active item is largest, others smaller
+    const scale = 1 - (absDiff * 0.1);
 
-    // Scale: Edges get slightly larger/wider to mimic the "fisheye" look
-    const scale = 1 + (absDiff * 0.1);
-
-    // Opacity
-    const opacity = absDiff > 4 ? 0 : 1 - (absDiff * 0.3);
+    // Opacity: Fade out items that are far away
+    const opacity = absDiff > 3 ? 0 : 1 - (absDiff * 0.2);
 
     return {
-      transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
+      transform: `translateX(${translateX}px) scale(${Math.max(0, scale)})`,
       opacity,
       zIndex: 10 - absDiff,
     };
@@ -56,17 +54,15 @@ export const HeroCarousel: React.FC = () => {
 
   return (
     <div className="relative w-full py-6 flex flex-col items-center">
-
-
-      {/* 3D Perspective Wrapper */}
-      <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden" style={{ perspective: '1200px' }}>
-        <div className="relative w-full h-full flex items-center justify-center" style={{ transformStyle: 'preserve-3d' }}>
+      {/* Container - Removed 3D perspective */}
+      <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+        <div className="relative w-full h-full flex items-center justify-center">
           {CAROUSEL_IMAGES.map((src, i) => {
             const style = getTransform(i);
             return (
               <div
                 key={i}
-                className="absolute w-[300px] h-[400px] md:w-[350px] md:h-[480px] rounded-[3rem] overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] "
+                className="absolute w-[400px] h-[300px] md:w-[500px] md:h-[400px] rounded-[3rem] overflow-hidden transition-all duration-700 ease-out shadow-lg"
                 style={style}
                 onClick={() => setActiveIdx(i)}
               >
