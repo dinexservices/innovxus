@@ -22,7 +22,7 @@ export const Contact: React.FC = () => {
               <Mail className="w-8 h-8 text-black group-hover:text-white transition-colors" />
             </div>
             <h4 className="text-sm font-bold uppercase tracking-wide text-gray-400 mb-2">General Inquiries</h4>
-            <a href="mailto:hello@innovxus.io" className="text-2xl font-bold text-black hover:text-red-600 transition-colors break-all">hello@innovxus.io</a>
+            <a href="mailto:info@innovxus.com" className="text-lg md:text-xl lg:text-2xl font-bold text-black hover:text-red-600 transition-colors">info@innovxus.com</a>
           </div>
 
           {/* Phone */}
@@ -31,7 +31,7 @@ export const Contact: React.FC = () => {
               <Phone className="w-8 h-8 text-black group-hover:text-white transition-colors" />
             </div>
             <h4 className="text-sm font-bold uppercase tracking-wide text-gray-400 mb-2">Direct Line</h4>
-            <p className="text-2xl font-bold text-black">+91 98765 43210</p>
+            <p className="text-2xl font-bold text-black">+91 8949039159</p>
           </div>
 
           {/* Office */}
@@ -40,7 +40,7 @@ export const Contact: React.FC = () => {
               <MapPin className="w-8 h-8 text-black group-hover:text-white transition-colors" />
             </div>
             <h4 className="text-sm font-bold uppercase tracking-wide text-gray-400 mb-2">Office</h4>
-            <p className="text-xl font-bold text-black leading-tight">InnovXus HQ, Tech Park,<br />Sector 62, Noida</p>
+            <p className="text-xl font-bold text-black leading-tight">Phagwara<br />Punjab</p>
           </div>
         </div>
       </div>

@@ -76,34 +76,34 @@ export const EngagementMetrics: React.FC = () => {
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
 
                     {/* Socials */}
-                    <div className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-red-200 transition-colors group">
+                    <a href="https://www.instagram.com/innovxus/" target="_blank" rel="noopener noreferrer" className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-red-200 transition-colors group block">
                         <Instagram className="w-8 h-8 text-red-600 mb-4 group-hover:rotate-12 transition-transform" />
                         <h4 className="text-3xl font-bold text-black mb-1">
                             <Counter value={10} suffix="k+" />
                         </h4>
                         <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Instagram</p>
-                    </div>
-                    <div className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-blue-200 transition-colors group">
+                    </a>
+                    <a href="https://www.linkedin.com/company/innovxus" target="_blank" rel="noopener noreferrer" className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-blue-200 transition-colors group block">
                         <Linkedin className="w-8 h-8 text-blue-700 mb-4 group-hover:rotate-12 transition-transform" />
                         <h4 className="text-3xl font-bold text-black mb-1">
                             <Counter value={2} suffix="k+" />
                         </h4>
                         <p className="text-xs font-bold uppercase tracking-widest text-gray-400">LinkedIn</p>
-                    </div>
-                    <div className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-red-600 transition-colors group">
+                    </a>
+                    <a href="https://youtube.com/@InnovXus" target="_blank" rel="noopener noreferrer" className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-red-600 transition-colors group block">
                         <Youtube className="w-8 h-8 text-red-600 mb-4 group-hover:rotate-12 transition-transform" />
                         <h4 className="text-3xl font-bold text-black mb-1">
                             <Counter value={22} suffix="k+" />
                         </h4>
                         <p className="text-xs font-bold uppercase tracking-widest text-gray-400">YouTube</p>
-                    </div>
-                    <div className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-green-200 transition-colors group">
+                    </a>
+                    <a href="https://wa.me/+918949039159" target="_blank" rel="noopener noreferrer" className="bg-gray-50 p-6 rounded-3xl border border-gray-100 hover:border-green-200 transition-colors group block">
                         <MessageCircle className="w-8 h-8 text-green-600 mb-4 group-hover:rotate-12 transition-transform" />
                         <h4 className="text-3xl font-bold text-black mb-1">
                             <Counter value={7} suffix="k+" />
                         </h4>
                         <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Community</p>
-                    </div>
+                    </a>
                 </div>
 
                 {/* Footnote */}

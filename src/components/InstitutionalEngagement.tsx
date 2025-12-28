@@ -14,17 +14,17 @@ export const InstitutionalEngagement: React.FC = () => {
 
     const roles = [
         {
-            title: "InnovXus",
+            title: "INNOVXUS",
             icon: <ShieldCheck className="w-8 h-8 text-red-600 mb-4" />,
             items: ["Academic design", "Governance oversight", "Documentation and reporting"]
         },
         {
-            title: "Operations Partner",
+            title: "OPERATIONS PARTNER",
             icon: <Cog className="w-8 h-8 text-gray-400 mb-4" />,
             items: ["On-ground execution only", "Logistics and coordination"]
         },
         {
-            title: "Institution",
+            title: "INSTITUTION",
             icon: <ClipboardCheck className="w-8 h-8 text-white mb-4" />,
             items: ["Oversight and supervision", "Discipline and compliance"]
         }
@@ -70,7 +70,7 @@ export const InstitutionalEngagement: React.FC = () => {
                             whileInView={{ scaleX: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 1, delay: 0.2 }}
-                            className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-red-900 via-red-600 to-red-900 -translate-y-1/2 z-0 opacity-50 origin-left"
+                            className="hidden md:block absolute top-6 left-0 w-full h-1 bg-gradient-to-r from-red-900 via-red-600 to-red-900 -translate-y-1/2 z-0 opacity-50 origin-left"
                         />
 
                         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 relative z-10">
@@ -118,7 +118,7 @@ export const InstitutionalEngagement: React.FC = () => {
                                 className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-300 hover:-translate-y-2 group"
                             >
                                 <div className="mb-6">{role.icon}</div>
-                                <h5 className="text-2xl font-bold mb-6 font-syncopate">{role.title}</h5>
+                                <h5 className="text-2xl font-bold mb-6 ">{role.title}</h5>
                                 <ul className="space-y-4">
                                     {role.items.map((item, i) => (
                                         <li key={i} className="flex items-start gap-3 text-gray-400 group-hover:text-gray-200 transition-colors">

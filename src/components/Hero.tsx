@@ -15,7 +15,7 @@ export const Hero: React.FC = () => {
         <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32 pb-20 bg-white bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
             <div className="relative z-10 container mx-auto px-6 text-center mb-4">
                 <h1
-                    className="text-[clamp(2.5rem,8vw,8rem)] md:text-9xl font-syncopate font-extrabold mb-6 tracking-tighter animate-in slide-in-from-bottom duration-1000 leading-tight"
+                    className="text-[clamp(2.5rem,8vw,8rem)] md:text-7xl lg:text-9xl font-syncopate font-extrabold mb-6 tracking-tighter animate-in slide-in-from-bottom duration-1000 leading-tight"
                 >
                     <span className="text-red-600 block">INNOVXUS</span>
                     <span className="text-black block text-xl md:text-4xl mt-2 tracking-normal font-bold">ACADEMIC & INDUSTRY INTEGRATION PLATFORM</span>

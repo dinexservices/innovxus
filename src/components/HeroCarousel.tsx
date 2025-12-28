@@ -8,6 +8,7 @@ const CAROUSEL_IMAGES = [
   "/media/img4.webp",
   "/media/img5.webp",
   "/media/img6.webp",
+  "/media/img7.webp",
 ];
 
 export const HeroCarousel: React.FC = () => {
@@ -54,14 +55,14 @@ export const HeroCarousel: React.FC = () => {
   return (
     <div className="relative w-full py-6 flex flex-col items-center">
       {/* Container - Removed 3D perspective */}
-      <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+      <div className="relative w-full md:h-[500px] h-[200px] flex items-center justify-center overflow-hidden">
         <div className="relative w-full h-full flex items-center justify-center">
           {CAROUSEL_IMAGES.map((src, i) => {
             const style = getTransform(i);
             return (
               <div
                 key={i}
-                className="absolute w-[300px] h-[200px] md:w-[500px] md:h-[400px] rounded-[3rem] overflow-hidden transition-all duration-700 ease-out shadow-lg"
+                className="absolute w-[300px] h-[190px] md:w-[500px] md:h-[400px] rounded-[3rem] overflow-hidden transition-all duration-700 ease-out shadow-lg"
                 style={style}
                 onClick={() => setActiveIdx(i)}
               >
@@ -94,8 +95,8 @@ export const HeroCarousel: React.FC = () => {
       </div>
 
       {/* Soft Side Fades */}
-      <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
     </div>
   );
 };

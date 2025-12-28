@@ -19,7 +19,7 @@ export const Navbar: React.FC = () => {
 
     const navLinks = [
         { name: 'About', href: '#about' },
-        { name: 'Process', href: '#process' },
+        { name: 'Engagement Model', href: '#process' },
         { name: 'Programs', href: '#programs' },
         { name: 'Corporate', href: '#corporate' },
         { name: 'Partners', href: '#partners' },
@@ -34,38 +34,40 @@ export const Navbar: React.FC = () => {
                 </Link>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex gap-8 items-center">
+                {/* Desktop Menu */}
+                {/* Desktop Menu */}
+                <div className="hidden lg:flex lg:gap-8 items-center">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-bold uppercase tracking-widest hover:text-red-600 transition-colors text-black"
+                            className="lg:text-sm font-bold uppercase lg:tracking-widest hover:text-red-600 transition-colors text-black whitespace-nowrap"
                         >
                             {link.name}
                         </a>
                     ))}
                     <a
                         href="#contact"
-                        className={`px-6 py-2 rounded-full font-bold text-sm transition-all shadow-lg ${isScrolled ? 'bg-red-600 text-white hover:bg-black' : 'bg-black text-white hover:bg-red-600'}`}
+                        className={`lg:px-6 lg:py-2 rounded-full font-bold lg:text-sm transition-all shadow-lg whitespace-nowrap ${isScrolled ? 'bg-red-600 text-white hover:bg-black' : 'bg-black text-white hover:bg-red-600'}`}
                     >
                         BOOK NOW
                     </a>
                 </div>
 
                 {/* Mobile Toggle */}
-                <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-black z-50 relative">
+                <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden text-black z-50 relative">
                     {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
                 </button>
             </div>
 
             {/* Mobile Menu Backdrop */}
             <div
-                className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 md:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 lg:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                 onClick={() => setIsMobileMenuOpen(false)}
             />
 
             {/* Mobile Menu Drawer (Right Side) */}
-            <div className={`fixed top-0 right-0 h-screen w-64 bg-white shadow-2xl z-40 transition-transform duration-300 transform md:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <div className={`fixed top-0 right-0 h-screen w-64 bg-white shadow-2xl z-40 transition-transform duration-300 transform lg:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <div className="flex flex-col h-full justify-center items-start gap-8 p-8">
                     {navLinks.map((link) => (
                         <a

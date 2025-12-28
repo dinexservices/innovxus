@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
-import { Instagram, Twitter, Linkedin, Facebook, ArrowUpRight, Heart } from 'lucide-react';
+import { Instagram, Linkedin, Youtube } from 'lucide-react';
 
 export const Footer: React.FC = () => {
     return (
@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
             <div className="absolute inset-0 z-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-red-900/40 via-transparent to-transparent" />
 
             <div className="container mx-auto px-6 relative z-10 pt-20 pb-10">
-                <div className="grid grid-cols-2 md:grid-cols-12 gap-12 mb-20">
+                <div className="grid grid-cols-2 md:grid-cols-12 gap-y-12 md:gap-x-4 lg:gap-x-12 mb-20">
 
                     {/* Brand Column */}
                     <div className="col-span-2 md:col-span-5 flex flex-col items-start">
@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
                     {/* Socials Column */}
                     <div className="col-span-2 md:col-span-2">
                         <h4 className="font-bold text-lg mb-6 text-white">Follow Us</h4>
-                        <div className="flex gap-4">
+                        <div className="grid grid-cols-2 gap-4">
                             <a href="https://www.instagram.com/innovxus/" className="p-3 bg-white/5 rounded-full hover:bg-red-600 hover:scale-110 transition-all duration-300 border border-white/10 hover:border-transparent group">
                                 <Instagram className="w-5 h-5 text-gray-400 group-hover:text-white" />
                             </a>
@@ -55,6 +55,27 @@ export const Footer: React.FC = () => {
                                 <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-white" />
                             </a>
 
+
+                            <a href="https://www.youtube.com/@InnovXus" className="p-3 bg-white/5 rounded-full hover:bg-red-600 hover:scale-110 transition-all duration-300 border border-white/10 hover:border-transparent group">
+                                <Youtube className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                            </a>
+                            <a href="https://wa.me/+918949039159" className="p-3 bg-white/5 rounded-full hover:bg-green-600 hover:scale-110 transition-all duration-300 border border-white/10 hover:border-transparent group">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    className="w-5 h-5 text-gray-400 group-hover:text-white"
+                                >
+                                    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 3.4L3 21" />
+                                    <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0 1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
