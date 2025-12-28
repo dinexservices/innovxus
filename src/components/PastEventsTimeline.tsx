@@ -108,7 +108,7 @@ export const PastEventsTimeline: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-32">
           <h2 className="text-red-600 font-bold uppercase tracking-[0.4em] mb-4">The Chronicles</h2>
-          <h3 className="text-5xl md:text-8xl font-syncopate font-bold text-white tracking-tighter">
+          <h3 className="text-3xl md:text-5xl font-syncopate font-bold text-white tracking-tighter">
             OUR <span className="text-red-600">JOURNEY</span>
           </h3>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto text-lg md:text-xl font-light">

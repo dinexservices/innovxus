@@ -13,7 +13,7 @@ export const UpcomingEvents: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-xl">
             <h2 className="text-red-600 font-bold uppercase tracking-widest mb-2">Happening Soon</h2>
-            <h3 className="text-4xl md:text-5xl font-syncopate font-bold mb-4 text-black">ON THE HORIZON</h3>
+            <h3 className="text-3xl md:text-5xl font-syncopate font-bold mb-4 text-black">ON THE HORIZON</h3>
             <p className="text-gray-600">Join us for our next round of world-class experiences. Limited seats available for each show.</p>
           </div>
           <button className="flex items-center gap-2 text-black font-bold group border-b-2 border-red-600 pb-2 hover:text-red-600 transition-colors">

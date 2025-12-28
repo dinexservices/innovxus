@@ -12,6 +12,7 @@ const HIGHLIGHT_IMAGES = [
     { id: 'h4', url: '/media/img4.webp', caption: 'Crowd Connection' },
     { id: 'h5', url: '/media/img5.webp', caption: 'Electric Vibe' },
     { id: 'h6', url: '/media/img6.webp', caption: 'Unforgettable Nights' },
+    { id: 'h7', url: '/media/img7.webp', caption: 'Unforgettable Nights' },
 ];
 
 const GalleryCarousel: React.FC = () => {
@@ -31,7 +32,7 @@ const GalleryCarousel: React.FC = () => {
     }, [next]);
 
     return (
-        <div className="relative w-full h-[50vw] md:h-[600px] max-h-[600px] rounded-[1.5rem] md:rounded-[3rem] overflow-hidden group shadow-2xl border border-white/10 mb-10 md:mb-20">
+        <div className="relative w-full h-[60vw] md:h-[800px] max-h-[800px] rounded-[1.5rem] md:rounded-[3rem] overflow-hidden group shadow-2xl border border-white/10 mb-10 md:mb-14">
             <div
                 className="flex h-full transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]"
                 style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -47,9 +48,9 @@ const GalleryCarousel: React.FC = () => {
                                     </span>
                                     <span className="text-white text-xs font-bold uppercase tracking-[0.3em]">Event Highlight</span>
                                 </div>
-                                <h4 className="text-2xl md:text-5xl font-syncopate font-bold text-white tracking-tighter leading-none mb-2 md:mb-4">
+                                {/* <h4 className="text-2xl md:text-5xl font-syncopate font-bold text-white tracking-tighter leading-none mb-2 md:mb-4">
                                     {img.caption}
-                                </h4>
+                                </h4> */}
                             </div>
                         </div>
                     </div>
@@ -159,7 +160,7 @@ export const Gallery: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-20">
                     <h2 className="text-red-600 font-bold uppercase tracking-[0.3em] mb-4">Archives</h2>
-                    <h3 className="text-4xl md:text-8xl font-syncopate font-bold text-white tracking-tighter mb-6 md:mb-10">
+                    <h3 className="text-3xl md:text-5xl font-syncopate font-bold text-white tracking-tighter mb-6 md:mb-10">
                         VISUAL <span className="text-red-600">STORY</span>
                     </h3>
                     <p className="text-gray-400 max-w-2xl mx-auto text-lg">

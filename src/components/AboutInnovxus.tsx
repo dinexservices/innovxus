@@ -49,7 +49,7 @@ export const AboutInnovxus: React.FC = () => {
                             {/* Visual Element behind */}
                             <div className="absolute -top-10 -right-10 w-64 h-64 bg-gray-100 rounded-full blur-3xl opacity-50 z-0" />
 
-                            <h3 className="text-2xl md:text-4xl font-syncopate font-bold text-black mb-6 md:mb-8 relative z-10">
+                            <h3 className="text-3xl md:text-5xl font-syncopate font-bold text-black mb-6 md:mb-8 relative z-10">
                                 ROLE OF <span className="text-red-600">INNOVXUS</span>
                             </h3>
 

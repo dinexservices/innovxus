@@ -1,6 +1,5 @@
-
+"use client";
 import React, { useState, useEffect, useCallback } from 'react';
-import { ExternalLink } from 'lucide-react';
 
 const CAROUSEL_IMAGES = [
   "/media/img1.webp",
@@ -62,7 +61,7 @@ export const HeroCarousel: React.FC = () => {
             return (
               <div
                 key={i}
-                className="absolute w-[400px] h-[300px] md:w-[500px] md:h-[400px] rounded-[3rem] overflow-hidden transition-all duration-700 ease-out shadow-lg"
+                className="absolute w-[300px] h-[200px] md:w-[500px] md:h-[400px] rounded-[3rem] overflow-hidden transition-all duration-700 ease-out shadow-lg"
                 style={style}
                 onClick={() => setActiveIdx(i)}
               >

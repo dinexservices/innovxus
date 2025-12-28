@@ -18,7 +18,7 @@ export const CollegesSection: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-red-600 font-bold uppercase tracking-[0.3em] mb-4">Our Presence</h2>
-          <h3 className="text-4xl md:text-6xl font-syncopate font-bold text-black tracking-tighter">
+          <h3 className="text-3xl md:text-5xl font-syncopate font-bold text-black tracking-tighter">
             TRUSTED BY <span className="text-red-600">ELITE</span> CAMPUSES
           </h3>
           <p className="text-gray-600 mt-6 max-w-2xl mx-auto text-lg">

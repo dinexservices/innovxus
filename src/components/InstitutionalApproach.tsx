@@ -26,13 +26,13 @@ export const InstitutionalApproach: React.FC = () => {
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-6xl font-syncopate font-bold mb-8 leading-tight">
+                        <h2 className="text-3xl md:text-5xl font-syncopate font-bold mb-8 leading-tight">
                             INSTITUTIONAL <span className="text-red-600">APPROACH</span>
                         </h2>
                     </motion.div>
 
                     <motion.p
-                        className="text-gray-400 text-lg md:text-xl leading-relaxed font-light max-w-3xl mx-auto"
+                        className="text-gray-400 text-sm md:text-lg leading-relaxed font-light max-w-3xl mx-auto"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}

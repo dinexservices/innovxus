@@ -101,7 +101,7 @@ export const CollegePartners: React.FC = () => {
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     >
                         {displayColleges.map((college, idx) => (
-                            <div key={idx} className="relative flex flex-col items-center justify-center p-6 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-all w-64 h-48 md:w-72 shrink-0 group select-none overflow-hidden">
+                            <div key={idx} className="relative flex flex-col items-center justify-center   rounded-xl transition-all w-36 h-48 md:w-72 shrink-0 group select-none overflow-hidden">
                                 <div className="w-24 h-24 relative flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                                     {college.logo ? (
                                         <Image
@@ -118,7 +118,7 @@ export const CollegePartners: React.FC = () => {
                                 </div>
 
                                 {/* Overlay Name on Hover */}
-                                <div className="absolute inset-0 bg-white/95 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 border-2 border-red-600/10">
+                                <div className="absolute inset-0 bg-white/95 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ">
                                     <h4 className="text-base font-bold text-center text-black">
                                         {college.name}
                                     </h4>

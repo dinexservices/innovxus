@@ -35,7 +35,7 @@ export const EngagementMetrics: React.FC = () => {
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="mb-16 max-w-4xl">
-                    <h2 className="text-4xl md:text-6xl font-syncopate font-bold mb-6 text-black tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-syncopate font-bold mb-6 text-black tracking-tight">
                         ENGAGEMENT & <span className="text-red-600">OUTREACH</span>
                     </h2>
 
